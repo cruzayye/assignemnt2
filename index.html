@@ -9,117 +9,71 @@
 
 
    <script>
-       var q1 = prompt('what\'s one of my hobbies?');
-        if( q1 == 'basketball' || q1 == 'music'|| q1 == 'sleeping')  {
-            alert('correct');
-        } else {
-            alert('wrong');
-        } 
-        
-        console.log('next question is about artist!');
 
-       var q2 = prompt('what\'s one of my hobbies?');
-        if( q2 == 'basketball' || q2 == 'music'|| q2 == 'sleeping')  {
-            alert('correct');
-        } else {
-            alert('wrong');
-        } 
+        var score = 0;
         
-        console.log('next question is about colors!');
+        var q1 = prompt('what year is it?');
+        
+        if( q1> 2018){
+            alert('Too high');
+        } else if (q1 < 2018){
+            alert('Too low');
+        } else{
+            alert('Yuuuuup');
+            score++;
+        }
 
-       var q3 = prompt('What are my top 3 colors');
-        if( q3== 'green' || q3 == 'yellow'|| q3 == 'blue')  {
-            alert('correct');
-        } else {
-            alert('wrong');
-        } 
-        
-        console.log('Next question is about age');
-        
-        
-        //whi does it say "wrong"when i us ===
-    var age = prompt('How old am I?');
-        if( age == 26){
-            alert('correct');
-        } else if( age > 26){
+        var q2 = prompt('Howd old am I?');
+        if( q2> 26){
+            alert('Too high');
+        } else if (q2 < 26){
+            alert('Too low');
+        } else{
+            alert('Yuuuuup');
+            score++;
+        }
+
+        var q3 = prompt('how many days are there in a year?');
+        if(q3>365){
+            alert('Too low');
+        } else if ( q3<365){
             alert('too high');
-        } else if( age < 26){
-            alert('too low');
-        } console.log(' your done, go home')
+        } else{
+            
+            alert('yuuuuup');
+            score++;
+        } 
 
+       var q4 = prompt('what\'s my favorite sport?').toLowerCase();
+       while( q4 != 'basketball'){
+            q4=prompt('Hint: Think BALL AND BASKET');
+            
+        } 
+         alert("yuuuup");
+         score++;
 
-
-       
-
-    
-    
+        alert('you got ' + score + ' out of 4 right');
+         
    </script>
 
-
-    
-
-   
 </head>
 <body>
     <h1>Webpage about Johnny</h1>
-        <p> </p>
     
-        <h2>Background info </h2>
-            <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    It has survived not only five centuries, but also the leap into electronic typesetting, 
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus 
-                    PageMaker including versions of Lorem Ipsum.
+    <h2>Answers</h2> <br />  
 
-
-        
-
-    
-         <h2>Answers</h2> <br />       
-        <h2>List of hobbies</h2>
-            <ul>
-                <li>Basketball</li>
-                <li>Music</li>
-                <li>Exploring</li>
-            </ul>
+    <h2>Whats my favorit sport</h2>
+    <h3>Basketball</h3>
        
+    <h2>Whats my current age</h2>
+    <h3>26</h3>
        
-        <h2>Top 3 artist</h2>
-            <ol>
-                <li>Lil Uzi</li>
-                <li>Jeremiah</li>
-                <li>Young thug</li>
-                
-            </ol>
-        
-        
-        <h2>Top colors</h2>
-            <ol>
-                <li>Blue</li>
-                <li>Red</li>
-                <li>Green</li>
-                
-            </ol>
-
-        <h2>Age</h2>
-            <p> 62 inversed </p>
-
-
-
-            
-            
-
-            
-
-            
-            
-
-    <footer>
+    <h2>Whats my favorite color?</h2>
+    <h3>Black</h3>
+       
+   <footer>
             &copy; 2019
-    </footer>
+   </footer>
 
     
 </body>
@@ -134,3 +88,23 @@
 
 
 -->
+        
+  
+
+
+            
+            
+
+            
+
+            
+            
+
+
+    
+    
+
+
+    
+
+   
