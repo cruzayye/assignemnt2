@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,51 +10,73 @@
 
 
    <script>
+       var score = 0;
 
-        var score = 0;
-        
         var q1 = prompt('what year is it?');
+        while(q1 == null || q1 == ''){
+            alert('at least guess!');
+            q1 = prompt('what year is it?');
+        }
         
+
         if( q1> 2018){
             alert('Too high');
         } else if (q1 < 2018){
             alert('Too low');
-        } else{
+        } else if(isNaN(q1)){
+            alert('enter a number');
+        }else{
             alert('Yuuuuup');
             score++;
         }
-
+            
         var q2 = prompt('Howd old am I?');
+        while(q2 == null || q2 == '' ){
+            alert('at least guess!')
+            q2 = prompt('Howd old am I?');
+        }
         if( q2> 26){
             alert('Too high');
         } else if (q2 < 26){
             alert('Too low');
-        } else{
+        }else if(isNaN(q1)){
+            alert('enter a number');
+        }else{
             alert('Yuuuuup');
             score++;
         }
-
+        
         var q3 = prompt('how many days are there in a year?');
+        while(q3 == null || q3 == ''){
+            alert('at least guess!')
+            q3 = prompt('how many days are there in a year?');
+        }
         if(q3>365){
             alert('Too low');
         } else if ( q3<365){
             alert('too high');
+        }else if(isNaN(q1)){
+            alert('enter a number');
         } else{
             
             alert('yuuuuup');
             score++;
         } 
-
-       var q4 = prompt('what\'s my favorite sport?').toLowerCase();
-       while( q4 != 'basketball'){
-            q4=prompt('Hint: Think BALL AND BASKET');
-            
-        } 
+        
+       var q4 = prompt('what\'s my favorite sport?');
+       while(q4 == null || q4== ''){
+           prompt('atleast guess')
+           q4 = prompt('what\'s my favorite sport?');
+       }
+       if(q4.toLowerCase() != 'basketball'){
+            alert('think Ball and Basket');
+            alert('you got ' + score + ' out of 4 right');
+        } else{
          alert("yuuuup");
          score++;
+         alert('you got ' + score + ' out of 4 right');
+        }
 
-        alert('you got ' + score + ' out of 4 right');
-         
    </script>
 
 </head>
@@ -78,33 +101,8 @@
     
 </body>
 </html>
-
-<!--
-    7/25 NOTES
-        Inputing script into HTML: 
-        document.write('<p> hello ' + name + ' </p>'); //dont ever use this line
-
-
-
-
--->
         
-  
+      
+       
 
-
-            
-            
-
-            
-
-            
-            
-
-
-    
-    
-
-
-    
-
-   
+        
