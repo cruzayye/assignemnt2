@@ -1,3 +1,8 @@
-# ASSIGNMENT 3
+# ASSIGNMENT 04
 
-### The following code uses takes the var SCORE and add 1 to it if the user guesses right. The first three questions are if/else if statments, while the last one is a while loop. 
+### Functions
+Before our questions were popping up automatically as soon as the user opened up the page, now we are using functions so that when the user clicks on button the script runs. 
+### Questions
+All questions conists of a while loop and if statements 
+### Grouping functions
+The last question we use a grouped function in order to escape form DRY code 
