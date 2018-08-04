@@ -1,0 +1,16 @@
+h1{
+    color: #D4EE9F;
+    background-color:white; 
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+
+}
+.questions{
+    background-color:#567714;
+    padding: 1%;
+    margin-bottom: 2px;
+}
+.hint{
+    color: #A5C663;
+}

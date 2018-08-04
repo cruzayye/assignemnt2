@@ -1,108 +1,232 @@
-
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>assignment 2ish</title>
+    <link href="css/css.css" rel="stylesheet" type="text/css" />
+    <title>assignment 4</title>
 
 
    <script>
-       var score = 0;
+       //still need to work on assignment 3 make sure to remember about cancels and strings 
+       //how do you compare var to undefined/cancel button/ tell the user that input only takes strings
+       // can you hit cancel and go to the next question?
+       //isNaN(var) --this is used in case the response is not a number
+       //<script typ="text/javascript" srce="../.js"</sc>
+       // how do you make a button that spits the game out? 
+       //Math.floor(Math.random() * 10) +11; // 11 is the starting number//Math.floor drops all the decimials// Math.random spits a decimal number between 0-1.
 
-        var q1 = prompt('what year is it?');
-        while(q1 == null || q1 == ''){
-            alert('at least guess!');
-            q1 = prompt('what year is it?');
-        }
+       //if you enter while loop first in case user enters a characters instead of a number and want to give them another try. 
+
+        /*var score = 0;
         
+        while(isNaN(q1)){
+            alert(enter a number);
+        } */
 
-        if( q1> 2018){
-            alert('Too high');
-        } else if (q1 < 2018){
-            alert('Too low');
-        } else if(isNaN(q1)){
-            alert('enter a number');
-        }else{
-            alert('Yuuuuup');
-            score++;
-        }
-            
-        var q2 = prompt('Howd old am I?');
-        while(q2 == null || q2 == '' ){
-            alert('at least guess!')
-            q2 = prompt('Howd old am I?');
-        }
+               /* var q2 = prompt('Howd old am I?');
         if( q2> 26){
             alert('Too high');
         } else if (q2 < 26){
             alert('Too low');
-        }else if(isNaN(q1)){
-            alert('enter a number');
-        }else{
+        } else{
             alert('Yuuuuup');
             score++;
         }
-        
+
         var q3 = prompt('how many days are there in a year?');
-        while(q3 == null || q3 == ''){
-            alert('at least guess!')
-            q3 = prompt('how many days are there in a year?');
-        }
         if(q3>365){
             alert('Too low');
         } else if ( q3<365){
             alert('too high');
-        }else if(isNaN(q1)){
-            alert('enter a number');
         } else{
             
             alert('yuuuuup');
             score++;
         } 
-        
-       var q4 = prompt('what\'s my favorite sport?');
-       while(q4 == null || q4== ''){
-           prompt('atleast guess')
-           q4 = prompt('what\'s my favorite sport?');
-       }
-       if(q4.toLowerCase() != 'basketball'){
-            alert('think Ball and Basket');
-            alert('you got ' + score + ' out of 4 right');
-        } else{
+
+       var q4 = prompt('what\'s my favorite sport?').toLowerCase();
+       while( q4 != 'basketball'){
+            q4=prompt('Hint: Think BALL AND BASKET');
+            
+        } 
          alert("yuuuup");
          score++;
-         alert('you got ' + score + ' out of 4 right');
+
+        alert('you got ' + score + ' out of 4 right');
+        */
+
+              /*
+                function correctfunc(){
+            
+            //first you got to reference the id with a var
+            var correctContainer = document.getElementById('correct');
+            //here we access the var and use innerHTML
+            correctContainer.innerHTML=("you got it");
+
         }
 
-   </script>
+            <input type="button" value="correct" onclick="correctfunc()">
+    <p id="correct">answer goes here</p>
+        */
+        function q1() {
+            var q1 = prompt('what year is it?');
+            answer= document.getElementById('q1');
+        while(q1 == null || q1 == '' || isNaN(q1)){
+            alert('Enter a number!');
+            q1 = prompt('what year is it?');
+        }
+        if( q1> 2018){
+            alert('Too high');
+        } else if (q1 < 2018){
+            alert('Too low');
+        }else{
+            answer.innerHTML=("Correct!");
+            score++;
+        }
+            //change color to red
+            answer.innerHTML=("The answer is 2018");
+
+
+        }
+        console.log('year: 2018');
+
+        //add (is not a string) function
+        function q2() {
+            var q4 = prompt('what\'s my favorite sport?');
+            answer = document.getElementById('q2');
+            while(q4 == null || q4== '' ){
+                 prompt('at least guess')
+                 q4 = prompt('what\'s my favorite sport?');
+       }
+           if(q4.toLowerCase() != 'basketball'){
+            //change color to red
+            answer.innerHTML=('the answer is: Basketball');
+        } else{
+            answer.innerHTML=('Correct!');
+            score++;
+        }
+        console.log('favorite sport');
+
+
+        }
+
+        function q3() {
+            var q3= prompt('what\'s the capital of Oregon');
+            var answer = document.getElementById('q3');
+            while(q3 == null || q3 == ''){
+                alert('at least guess');
+                q3= prompt('what\'s the capital of Oregon');
+            }
+            //touppercase doesnt work 
+            if(q3.toLowerCase() != 'salem'){
+                //change color to red
+                answer.innerHTML=("The answer is: Salem");
+            } else{
+
+                answer.innerHTML=("Correct!");
+            
+            }
+            console.log('capital of Oregon');
+
+
+        }
+            
+        function q4() {
+            var q4= prompt('What color does blue and green make?');
+            var answer = document.getElementById('question4');
+            while( q4 == null || q4 == ""){
+                alert('at least guess');
+            }
+            //touppercase doesnt work
+            if(q4.toLowerCase() != 'cyan'){
+                //change color to red
+                answer.innerHTML=("The answer is: Cyan");
+                
+
+            } else{
+
+                answer.innerHTML=("Correct!");
+            
+            }
+   
+
+
+        }
+
+        function showAnswer(answer){
+            var result = document.getElementById("answer");
+            result.innerHTML = answer;
+            
+
+        }
+        
+         
+   </script> 
+
 
 </head>
 <body>
-    <h1>Webpage about Johnny</h1>
+    <h1>MILLION DOLLAR QUESTIONS</h1>
+   
     
-    <h2>Answers</h2> <br />  
-
-    <h2>Whats my favorit sport</h2>
-    <h3>Basketball</h3>
+    <div class="questions">
+        <h2>What year is it?</h2>
+        <p class="hint">Hint: numbers only</p>
+        <input type="button" value="READY" onclick="q1()">
+        <p id="q1"></p>
+    </div>
+    
+    <div class="questions">
+        <h2>Whats my favorite sport?</h2>
+        <p class="hint">Hint:not wrestling</p>
+        <input type="button" value="READY" onclick="q2()">
+        <p id="q2"></p>
+    </div>
+    
+    
+    <div class="questions">
+        <h2>Whats the capital of Oregon</h2>
+        <p class="hint">Hint:Not Portland</p>
+        <input type="button" value="READY" onclick="q3()">
+        <p id="q3"></p>
+    </div>
+    
+    <div class="questions">
+        <h2>What color does blue and green make?</h2>
+        <p class="hint">Hint:starts with a C </p>
+        <input type="button" value="READY" onclick="q4()">
+        <p id="question4"></p>
+    </div>
+    
+    <div class="questions">
+    <h2>Which of the following is not a continent</h2>
+    <p class="hint">Hint:Starts with A</p>
+    <input type="button" value="Antartica" onclick="showAnswer('wrong')">
+    <input type="button" value="Argentina" onclick="showAnswer('correct!')">
+    <input type="button" value="Africa" onclick="showAnswer('wrong')">
+    <p id="answer"></p>
+    </div>
+    <!--
        
     <h2>Whats my current age</h2>
     <h3>26</h3>
        
     <h2>Whats my favorite color?</h2>
     <h3>Black</h3>
+    -->
        
-   <footer>
-            &copy; 2019
-   </footer>
-
-    
 </body>
 </html>
-        
-      
-       
 
-        
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
