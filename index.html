@@ -6,162 +6,130 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/css.css" rel="stylesheet" type="text/css" />
     <title>assignment 4</title>
+    <style>
+        .wrong {
+            color: red;
+        }
+        .correct {
+            color: lightskyblue;            
+        }
+
+        .img img{
+            width: 200px;
+            height: auto;
+
+            
+        }
+    
+        
+    </style>
 
 
    <script>
-       //still need to work on assignment 3 make sure to remember about cancels and strings 
-       //how do you compare var to undefined/cancel button/ tell the user that input only takes strings
-       // can you hit cancel and go to the next question?
-       //isNaN(var) --this is used in case the response is not a number
-       //<script typ="text/javascript" srce="../.js"</sc>
-       // how do you make a button that spits the game out? 
-       //Math.floor(Math.random() * 10) +11; // 11 is the starting number//Math.floor drops all the decimials// Math.random spits a decimal number between 0-1.
+ 
 
-       //if you enter while loop first in case user enters a characters instead of a number and want to give them another try. 
+       //still need to find a way to input "correct"/"wrong"
+       function trueFalse(result, message, style) {
+            result.innerHTML=(message);
+            result.classList.add(style);
 
-        /*var score = 0;
-        
-        while(isNaN(q1)){
-            alert(enter a number);
-        } */
 
-               /* var q2 = prompt('Howd old am I?');
-        if( q2> 26){
-            alert('Too high');
-        } else if (q2 < 26){
-            alert('Too low');
-        } else{
-            alert('Yuuuuup');
-            score++;
-        }
-
-        var q3 = prompt('how many days are there in a year?');
-        if(q3>365){
-            alert('Too low');
-        } else if ( q3<365){
-            alert('too high');
-        } else{
-            
-            alert('yuuuuup');
-            score++;
-        } 
-
-       var q4 = prompt('what\'s my favorite sport?').toLowerCase();
-       while( q4 != 'basketball'){
-            q4=prompt('Hint: Think BALL AND BASKET');
-            
-        } 
-         alert("yuuuup");
-         score++;
-
-        alert('you got ' + score + ' out of 4 right');
-        */
-
-              /*
-                function correctfunc(){
-            
-            //first you got to reference the id with a var
-            var correctContainer = document.getElementById('correct');
-            //here we access the var and use innerHTML
-            correctContainer.innerHTML=("you got it");
-
-        }
-
-            <input type="button" value="correct" onclick="correctfunc()">
-    <p id="correct">answer goes here</p>
-        */
+       }
         function q1() {
-            var q1 = prompt('what year is it?');
-            answer= document.getElementById('q1');
-        while(q1 == null || q1 == '' || isNaN(q1)){
-            alert('Enter a number!');
-            q1 = prompt('what year is it?');
-        }
-        if( q1> 2018){
-            alert('Too high');
-        } else if (q1 < 2018){
-            alert('Too low');
-        }else{
-            answer.innerHTML=("Correct!");
-            score++;
-        }
-            //change color to red
-            answer.innerHTML=("The answer is 2018");
+            //var q1 = prompt('what year is it?');
+        var answer= document.getElementById('q1Answer').value
+        var checkAnswer = document.getElementById('q1check');
+        var img = document.getElementById('img');     
+;
+    
+        if( answer> 2018){
+            trueFalse(checkAnswer, "Too High!", "wrong");
+           // checkAnswer.innerHTML=("Too High!");
+            //checkAnswer.classList.add("wrong");
+            
+            img.innerHTML= '<img src="./imgs/sad.jpg"/>'
+            img.classList.add("img");
+        }else if(isNaN(answer)|| answer=="") {
+            alert('enter a number');
+            
+        } else if (answer < 2018){
+            img.innerHTML= '<img src="./imgs/sad.jpg"/>'
+            img.classList.add("img");
+            trueFalse(checkAnswer, "Wrong!", "wrong");
+
+           // checkAnswer.innerHTML=("Too Low");
+            //checkAnswer.classList.add("wrong");
+        } else if ( answer > 2018){
+            trueFalse(checkAnswer, "Wrong!", "wrong");
+
+           // checkAnswer.innerHTML=("Too high");
+            //checkAnswer.classList.add("wrong");
+            
+
+            }else{
+                trueFalse(checkAnswer, "Correct!", "correct");
+
+                //checkAnswer.innerHTML=('Correct!');
+                //checkAnswer.classList.add('correct');
+                img.innerHTML= '<img src="./imgs/smiley.png"/>';
+            img.classList.add("img");
+                
+
+            }
+       
 
 
         }
         console.log('year: 2018');
 
-        //add (is not a string) function
-        function q2() {
-            var q4 = prompt('what\'s my favorite sport?');
-            answer = document.getElementById('q2');
-            while(q4 == null || q4== '' ){
-                 prompt('at least guess')
-                 q4 = prompt('what\'s my favorite sport?');
-       }
-           if(q4.toLowerCase() != 'basketball'){
-            //change color to red
-            answer.innerHTML=('the answer is: Basketball');
-        } else{
-            answer.innerHTML=('Correct!');
-            score++;
-        }
-        console.log('favorite sport');
-
-
-        }
-
-        function q3() {
-            var q3= prompt('what\'s the capital of Oregon');
-            var answer = document.getElementById('q3');
-            while(q3 == null || q3 == ''){
-                alert('at least guess');
-                q3= prompt('what\'s the capital of Oregon');
-            }
-            //touppercase doesnt work 
-            if(q3.toLowerCase() != 'salem'){
-                //change color to red
-                answer.innerHTML=("The answer is: Salem");
-            } else{
-
-                answer.innerHTML=("Correct!");
+        function q4(){
+            var sports =[
+                'ultimate frizbee',
+                'basketball',
+                'soccer',
+                'football'
+            ]
             
-            }
-            console.log('capital of Oregon');
 
-
-        }
+            var answer = document.getElementById('sports').value;
+            var answerLower= answer.toLowerCase();
             
-        function q4() {
-            var q4= prompt('What color does blue and green make?');
-            var answer = document.getElementById('question4');
-            while( q4 == null || q4 == ""){
-                alert('at least guess');
-            }
-            //touppercase doesnt work
-            if(q4.toLowerCase() != 'cyan'){
-                //change color to red
-                answer.innerHTML=("The answer is: Cyan");
+            var checkAnswer = document.getElementById('sportResult');
+            var img = document.getElementById('img2');     
+           
+
+            //ANOTHER WAY TO DO THIS IS WITH A FOR LOOP 
+            if(answerLower == sports[0]|| answerLower== sports[1] || answerLower== sports[2] || answerLower == sports[2]){
+                trueFalse(checkAnswer, "Correct!", "correct");
+                img.innerHTML= '<img src="./imgs/smiley.png"/>';
+                img.classList.add("img");
+
+
+                
                 
 
-            } else{
 
-                answer.innerHTML=("Correct!");
-            
+                //result.innerHTML= ('correct');
+                
             }
-   
-
-
         }
 
-        function showAnswer(answer){
-            var result = document.getElementById("answer");
-            result.innerHTML = answer;
-            
-
-        }
         
+  /*
+
+       function q4() {
+        var answer= document.getElementById('sports').value;
+        var result= document.getElementById('sportResult');
+       // var img = document.getElementById('img');             
+           // answer = document.getElementById('q2');
+        if(answer == 'sports'){
+            //change color to red
+           result.innerHTML=("correct");
+        }
+
+        }
+    */
+         
          
    </script> 
 
@@ -169,21 +137,50 @@
 </head>
 <body>
     <h1>MILLION DOLLAR QUESTIONS</h1>
-   
+
+    
+    <!--end of first question-->
+    
     
     <div class="questions">
         <h2>What year is it?</h2>
         <p class="hint">Hint: numbers only</p>
-        <input type="button" value="READY" onclick="q1()">
-        <p id="q1"></p>
+        <input type='text' id='q1Answer'> 
+        <input type="button" value="submit" onclick="q1()">
+        <!-- <input type="button" value="Submit" onclick="questionTwo()">-->
+        <p id="q1check"></p>
+        <span id="img">  </span>
     </div>
+    
     
     <div class="questions">
         <h2>Whats my favorite sport?</h2>
         <p class="hint">Hint:not wrestling</p>
-        <input type="button" value="READY" onclick="q2()">
-        <p id="q2"></p>
+        <input type='text' id='sports'> 
+        <input type="button" value="submit" onclick="q4()">
+        <p id="sportResult"></p>
+        <span id="img2">  </span>
+
     </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    <!-- 
+        <div class="questions">
+                <h2>Which of the following is not a continent</h2>
+                <p class="hint">Hint:Starts with A</p>
+                <input type="button" value="Antartica" onclick="showAnswer('wrong')">
+                <input type="button" value="Argentina" onclick="showAnswer('correct!')">
+                <input type="button" value="Africa" onclick="showAnswer('wrong')">
+                <p id="answer"></p>
+        </div>
+        
     
     
     <div class="questions">
@@ -208,6 +205,7 @@
     <input type="button" value="Africa" onclick="showAnswer('wrong')">
     <p id="answer"></p>
     </div>
+-->
     <!--
        
     <h2>Whats my current age</h2>
