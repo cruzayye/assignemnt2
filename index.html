@@ -7,19 +7,7 @@
     <link href="css/css.css" rel="stylesheet" type="text/css" />
     <title>assignment 4</title>
     <style>
-        .wrong {
-            color: red;
-        }
-        .correct {
-            color: lightskyblue;            
-        }
 
-        .img img{
-            width: 200px;
-            height: auto;
-
-            
-        }
     
         
     </style>
@@ -28,10 +16,11 @@
    <script>
  
 
-       //still need to find a way to input "correct"/"wrong"
+       //see if we can put img/imgstyle into this func
        function trueFalse(result, message, style) {
             result.innerHTML=(message);
             result.classList.add(style);
+     
 
 
        }
@@ -43,44 +32,30 @@
 ;
     
         if( answer> 2018){
-            trueFalse(checkAnswer, "Too High!", "wrong");
-           // checkAnswer.innerHTML=("Too High!");
-            //checkAnswer.classList.add("wrong");
-            
+            trueFalse(checkAnswer, "Too High!", "wrong",);
+       ;
             img.innerHTML= '<img src="./imgs/sad.jpg"/>'
             img.classList.add("img");
         }else if(isNaN(answer)|| answer=="") {
             alert('enter a number');
             
         } else if (answer < 2018){
+            trueFalse(checkAnswer, "Too Low!", "wrong");
             img.innerHTML= '<img src="./imgs/sad.jpg"/>'
             img.classList.add("img");
-            trueFalse(checkAnswer, "Wrong!", "wrong");
-
-           // checkAnswer.innerHTML=("Too Low");
+            //---------BEFORE THE trueFalse function we had---------
+            // checkAnswer.innerHTML=("Too Low");
             //checkAnswer.classList.add("wrong");
-        } else if ( answer > 2018){
-            trueFalse(checkAnswer, "Wrong!", "wrong");
-
-           // checkAnswer.innerHTML=("Too high");
-            //checkAnswer.classList.add("wrong");
-            
-
-            }else{
+        } else{
                 trueFalse(checkAnswer, "Correct!", "correct");
-
-                //checkAnswer.innerHTML=('Correct!');
-                //checkAnswer.classList.add('correct');
                 img.innerHTML= '<img src="./imgs/smiley.png"/>';
-            img.classList.add("img");
-                
+                img.classList.add("img");
 
             }
-       
 
-
+        console.log('End of Year question');
         }
-        console.log('year: 2018');
+
 
         function q4(){
             var sports =[
@@ -99,38 +74,49 @@
            
 
             //ANOTHER WAY TO DO THIS IS WITH A FOR LOOP 
-            if(answerLower == sports[0]|| answerLower== sports[1] || answerLower== sports[2] || answerLower == sports[2]){
+            if(answerLower == sports[0]|| answerLower== sports[1] || answerLower== sports[2] || answerLower == sports[3]){
                 trueFalse(checkAnswer, "Correct!", "correct");
                 img.innerHTML= '<img src="./imgs/smiley.png"/>';
                 img.classList.add("img");
 
-
-                
-                
-
-
                 //result.innerHTML= ('correct');
                 
+            } else{
+                trueFalse(checkAnswer, "Wrong!", "wrong");
+                img.innerHTML= '<img src="./imgs/sad.jpg"/>';
+                img.classList.add("img");
+
+                
+        }   
+        console.log('end of sports question')
             }
-        }
 
-        
-  /*
 
-       function q4() {
-        var answer= document.getElementById('sports').value;
-        var result= document.getElementById('sportResult');
-       // var img = document.getElementById('img');             
-           // answer = document.getElementById('q2');
-        if(answer == 'sports'){
-            //change color to red
-           result.innerHTML=("correct");
-        }
+        function q3() {
+            var answer = document.getElementById('capital').value;
+            var answerLower= answer.toLowerCase();
+            var resultAnswer = document.getElementById('oregon');
+            var img = document.getElementById('oregon');
+            if( answerLower == ''){
+                alert('at least guess');
+            }
+            else if(answerLower != 'salem'){
+                trueFalse(resultAnswer, "Wrong!", "wrong");
+                img.innerHTML= '<img src="./imgs/sad.jpg"/>';
+                img.classList.add("img");
+
+                
+            } else{
+                trueFalse(resultAnswer, "Correct!", "correct");
+                img.innerHTML= '<img src="./imgs/smiley.png"/>';
+                img.classList.add("img");
+            
+            }
+            console.log('capital of Oregon');
+
 
         }
-    */
-         
-         
+            
    </script> 
 
 
@@ -154,77 +140,65 @@
     
     
     <div class="questions">
-        <h2>Whats my favorite sport?</h2>
+        <h2>What sports do I enjoy?</h2>
         <p class="hint">Hint:not wrestling</p>
         <input type='text' id='sports'> 
         <input type="button" value="submit" onclick="q4()">
         <p id="sportResult"></p>
         <span id="img2">  </span>
-
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-    <!-- 
-        <div class="questions">
-                <h2>Which of the following is not a continent</h2>
-                <p class="hint">Hint:Starts with A</p>
-                <input type="button" value="Antartica" onclick="showAnswer('wrong')">
-                <input type="button" value="Argentina" onclick="showAnswer('correct!')">
-                <input type="button" value="Africa" onclick="showAnswer('wrong')">
-                <p id="answer"></p>
-        </div>
         
+    </div>
     
     
     <div class="questions">
         <h2>Whats the capital of Oregon</h2>
         <p class="hint">Hint:Not Portland</p>
+        <input type='text' id='capital'> 
         <input type="button" value="READY" onclick="q3()">
-        <p id="q3"></p>
+        <p id="oregon"></p>
+        <span id="img3">  </span>
     </div>
     
-    <div class="questions">
-        <h2>What color does blue and green make?</h2>
-        <p class="hint">Hint:starts with a C </p>
-        <input type="button" value="READY" onclick="q4()">
-        <p id="question4"></p>
-    </div>
     
-    <div class="questions">
-    <h2>Which of the following is not a continent</h2>
-    <p class="hint">Hint:Starts with A</p>
-    <input type="button" value="Antartica" onclick="showAnswer('wrong')">
-    <input type="button" value="Argentina" onclick="showAnswer('correct!')">
-    <input type="button" value="Africa" onclick="showAnswer('wrong')">
-    <p id="answer"></p>
-    </div>
--->
-    <!--
-       
-    <h2>Whats my current age</h2>
-    <h3>26</h3>
-       
-    <h2>Whats my favorite color?</h2>
-    <h3>Black</h3>
-    -->
-       
 </body>
 </html>
-
-    
     
     
     
     
     
 
-    
-    
-    
+
+
+
+ 
+              
+                
+
+            
+
+           
+            
+       
+
+
+                
+                
+
+
+
+        
+
+         
+
+
+
+
+
+
+
+
+
+
+
+

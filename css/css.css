@@ -13,4 +13,18 @@ h1{
 }
 .hint{
     color: #A5C663;
+    
+}
+.wrong {
+    color: red;
+}
+.correct {
+    color: lightskyblue;            
+}
+
+.img img{
+    width: 200px;
+    height: auto;
+
+    
 }
